@@ -13,7 +13,8 @@
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
         "mll-lab/laravel-graphql-playground": "^1.1",
-        "nuwave/lighthouse": "^4.1",
+        "nuwave/lighthouse": "dev-master",
+        "nuwave/lighthouse-ws": "^1.0@beta",
         "predis/predis": "^1.1",
         "pusher/pusher-php-server": "^4.0"
     },
