@@ -1,0 +1,78 @@
+{
+  user(id: 1) {
+    id
+    name
+    email
+  }
+}
+
+{
+  posts {
+    id
+    title
+    user {
+      id
+      name
+    }
+    comments {
+      id
+      reply
+    }
+  }
+}
+
+{
+  post(id: 1) {
+    id
+    title
+    user {
+      id
+      name
+    }
+    comments {
+      id
+      reply
+    }
+  }
+}
+
+mutation {
+  createUser(input: { name: "Donald", email: "d3@d.nl", password: "secret" }) {
+    id
+    name
+  }
+}
+
+mutation {
+  updateUser(id: "11" name: "Hillary"){
+    id
+    name
+  }
+}
+
+mutation {
+  deleteUser(id: "11"){
+    name
+  }
+}
+
+{
+  me {
+    name
+    email
+  }
+}
+
+mutation {
+  createPost(input: { title: "Donald", content: "d3@d.nl" }) {
+    id
+    title
+  }
+}
+
+mutation {
+  updatePost(input: {id: "3", title: "AAAABCDEFGHIJKLMNO"}){
+    id
+    title
+  }
+}
