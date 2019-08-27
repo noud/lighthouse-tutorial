@@ -141,7 +141,7 @@ return [
     |
     */
 
-#    'debug' => \GraphQL\Error\Debug::INCLUDE_DEBUG_MESSAGE | \GraphQL\Error\Debug::INCLUDE_TRACE,
+//    'debug' => \GraphQL\Error\Debug::INCLUDE_DEBUG_MESSAGE | \GraphQL\Error\Debug::INCLUDE_TRACE,
     'debug' => \GraphQL\Error\Debug::INCLUDE_DEBUG_MESSAGE | \GraphQL\Error\Debug::RETHROW_INTERNAL_EXCEPTIONS,
 
     /*
@@ -209,14 +209,15 @@ return [
         /*
          * Determines if broadcasts should be queued by default.
          */
-        'queue_broadcasts' => env('LIGHTHOUSE_QUEUE_BROADCASTS', true),
+        'queue_broadcasts' => env('LIGHTHOUSE_QUEUE_BROADCASTS', false),
 
         /*
          * Default subscription storage.
          *
          * Any Laravel supported cache driver options are available here.
          */
-        'storage' => env('LIGHTHOUSE_SUBSCRIPTION_STORAGE', 'redis'),
+//        'storage' => env('LIGHTHOUSE_SUBSCRIPTION_STORAGE', 'redis'),
+        'storage' => env('LIGHTHOUSE_SUBSCRIPTION_STORAGE', 'file'),
 
         /*
          * Default subscription broadcaster.

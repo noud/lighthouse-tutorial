@@ -18,7 +18,7 @@ class EventController extends Controller
         $post->title = 'TEST';
         $post->save();
         
-        \Nuwave\Lighthouse\Execution\Utils\Subscription::broadcast('postUpdated', $post, true);
+        \Nuwave\Lighthouse\Execution\Utils\Subscription::broadcast('postUpdated', $post, false);
         //\Log::debug('An informational message done.');
         return "done";
     }
