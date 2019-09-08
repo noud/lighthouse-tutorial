@@ -63,7 +63,7 @@ return [
     */
 
     'cache' => [
-        'enable' => env('LIGHTHOUSE_CACHE_ENABLE', true),
+        'enable' => env('LIGHTHOUSE_CACHE_ENABLE', false),
         'key' => env('LIGHTHOUSE_CACHE_KEY', 'lighthouse-schema'),
         'ttl' => env('LIGHTHOUSE_CACHE_TTL', null),
     ],
@@ -80,7 +80,7 @@ return [
     */
 
     'namespaces' => [
-        'models' => ['App', 'App\\Models'],
+        'models' => ['App\\Models'],
         'queries' => 'App\\GraphQL\\Queries',
         'mutations' => 'App\\GraphQL\\Mutations',
         'subscriptions' => 'App\\GraphQL\\Subscriptions',
