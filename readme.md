@@ -2,9 +2,10 @@
 
 ![Schema Builder](./docs/blog.png?raw=true "Schema Builder")
 
-## Model generation
+## Model generation from SQL
 
 ```
+php artisan migrate
 php artisan code:models
 ```
 
@@ -16,7 +17,7 @@ php artisan code:models
 
 <div align="center">
 
-# Lighthouse
+# Lighthouse GraphQL Server for Laravel
 
 [![Build Status](https://travis-ci.org/nuwave/lighthouse.svg?branch=master)](https://travis-ci.org/nuwave/lighthouse)
 [![codecov](https://codecov.io/gh/nuwave/lighthouse/branch/master/graph/badge.svg)](https://codecov.io/gh/nuwave/lighthouse)
