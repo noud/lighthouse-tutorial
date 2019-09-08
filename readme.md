@@ -1,4 +1,4 @@
-## Entity Relationship to SQL
+## [Entity-Relationship](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model) to [SQL](https://en.wikipedia.org/wiki/SQL)
 
 ![Schema Builder](./docs/blog.png?raw=true "Schema Builder")
 
@@ -6,7 +6,7 @@
 php artisan migrate
 ```
 
-## Models generation from SQL
+## Models generation from [SQL](https://en.wikipedia.org/wiki/SQL)
 
 ```
 php artisan code:models
@@ -20,7 +20,7 @@ php artisan code:models
 
 <div align="center">
 
-# Lighthouse GraphQL Server for Laravel
+# Lighthouse [GraphQL](https://en.wikipedia.org/wiki/GraphQL) Server for Laravel
 
 [![Build Status](https://travis-ci.org/nuwave/lighthouse.svg?branch=master)](https://travis-ci.org/nuwave/lighthouse)
 [![codecov](https://codecov.io/gh/nuwave/lighthouse/branch/master/graph/badge.svg)](https://codecov.io/gh/nuwave/lighthouse)
