@@ -6,8 +6,6 @@ scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 
 type Query {
     me: User @auth
-    # users: [User!]! @middleware(checks: ["auth:api"]) @paginate(type: "paginator" model: "App\\Models\\User")
-    # users: [User!]! @all(model: "App\\Models\\User")
     users: [User!]! @middleware(checks: ["auth:api"]) @paginate
     user(id: ID @eq): User @find(model: "App\\Models\\User")
 }
@@ -37,15 +35,12 @@ input CreateUserInput {
 }
 
 type Mutation {
-#  createUser(name: String!, email: String!, password: String!): User! @create
 #  createUser(
 #    name: String @rules(apply: ["required", "min:4"])
 #    email: String @rules(apply: ["email"])
 #    password: String!
 #  ): User! @create
-  createUser(
-      input: CreateUserInput! @spread
-  ): User! @create
+  createUser(input: CreateUserInput! @spread): User! @create
   updateUser(id: ID!, name: String): User @update
   deleteUser(id: ID!): User @delete
 }

@@ -1,6 +1,5 @@
 extend type Query {
-    posts: [Post!]! @paginate
-    # posts(first: Int!, page: Int): PostPaginator
+    posts(first: Int!, page: Int): [Post!]! @paginate
     post(id: PostInput! @eq): Post @find
     authors: [User!]! @all(model: "App\\Models\\User")
 }
@@ -13,13 +12,9 @@ type Post {
     coverImage: CoverImage! @belongsTo
     user: User! @belongsTo
     comments: [Comment!]! @hasMany
+    dateAndTime: String @rename(attribute: "updated_at")
     updated_at: DateTime!
 }
-
-# type PostPaginator {
-#     data: [Post!]!
-#     paginatorInfo: PaginatorInfo!
-# }
 
 type CoverImage {
     id: ID!
@@ -51,8 +46,6 @@ type Subscription {
 }
 
 extend type Mutation {
-    createPost(
-      input: CreatePostInput! @spread
-  ): Post! @create
+    createPost(input: CreatePostInput! @spread): Post! @create
     updatePost(input: UpdatePostInput! @spread): Post @update @broadcast(subscription: "postUpdated")
 }
