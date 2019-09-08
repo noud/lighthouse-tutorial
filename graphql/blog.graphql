@@ -1,7 +1,8 @@
 extend type Query {
     posts: [Post!]! @paginate
     # posts(first: Int!, page: Int): PostPaginator
-    post(id: Int! @eq): Post @find
+    post(id: PostInput! @eq): Post @find
+    authors: [User!]! @all(model: "App\\Models\\User")
 }
 
 type Post {
@@ -12,6 +13,7 @@ type Post {
     coverImage: CoverImage! @belongsTo
     user: User! @belongsTo
     comments: [Comment!]! @hasMany
+    updated_at: DateTime!
 }
 
 # type PostPaginator {
@@ -28,6 +30,10 @@ type Comment{
     id: ID!
     reply: String!
     post: Post! @belongsTo
+}
+
+input PostInput {
+    id: ID!
 }
 
 input CreatePostInput {
