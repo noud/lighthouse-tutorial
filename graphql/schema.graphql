@@ -7,7 +7,8 @@ scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 type Query {
     me: User @auth
     # users: [User!]! @middleware(checks: ["auth:api"]) @paginate(type: "paginator" model: "App\\Models\\User")
-    users: [User!]! @all(model: "App\\Models\\User")
+    # users: [User!]! @all(model: "App\\Models\\User")
+    users: [User!]! @middleware(checks: ["auth:api"]) @paginate
     user(id: ID @eq): User @find(model: "App\\Models\\User")
 }
 
