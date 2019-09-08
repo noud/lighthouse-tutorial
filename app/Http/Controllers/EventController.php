@@ -14,7 +14,7 @@ class EventController extends Controller
     {
         event(new MyEvent('hello world'));
         
-        $post = Post::find(1);
+        $post = Post::find(6);
         $post->title = 'TEST';
         $post->save();
         

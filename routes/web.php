@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/event/trigger', 'EventController@trigger');
+Route::get('/pusher/trigger', 'PusherController@trigger');
