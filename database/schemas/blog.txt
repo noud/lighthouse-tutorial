@@ -1,0 +1,704 @@
+{
+    "database": {
+        "name": "lighthouse-example"
+    },
+    "ui": {
+        "database": {
+            "showModal": false,
+            "edit": false
+        },
+        "table": {
+            "showModal": false,
+            "edit": false,
+            "editData": {
+                "id": "",
+                "name": "",
+                "softDelete": false,
+                "timeStamp": true
+            }
+        },
+        "column": {
+            "showModal": false,
+            "edit": false,
+            "editData": {
+                "id": "",
+                "name": "",
+                "type": "integer",
+                "length": "",
+                "defValue": "",
+                "comment": "",
+                "autoInc": false,
+                "nullable": false,
+                "unique": false,
+                "index": false,
+                "unsigned": false,
+                "foreignKey": {
+                    "references": {
+                        "id": "",
+                        "name": ""
+                    },
+                    "on": {
+                        "id": "",
+                        "name": ""
+                    }
+                }
+            },
+            "tableId": ""
+        },
+        "positions": {
+            "3i3lhcq": {
+                "x": 99,
+                "y": 76
+            },
+            "1van6k": {
+                "x": 389,
+                "y": 74
+            },
+            "ooch1": {
+                "x": 725,
+                "y": 73
+            },
+            "u5hmv": {
+                "x": 720,
+                "y": 354
+            },
+            "65lkze": {
+                "x": 385,
+                "y": 391
+            },
+            "chdill": {
+                "x": 96,
+                "y": 403
+            }
+        }
+    },
+    "tables": [
+        {
+            "id": "3i3lhcq",
+            "name": "users",
+            "color": "table-header-blue",
+            "softDelete": false,
+            "timeStamp": true
+        },
+        {
+            "id": "u5hmv",
+            "name": "password_resets",
+            "color": "table-header-red",
+            "softDelete": false,
+            "timeStamp": false
+        },
+        {
+            "id": "1van6k",
+            "name": "posts",
+            "color": "table-header-blue",
+            "softDelete": false,
+            "timeStamp": true
+        },
+        {
+            "id": "ooch1",
+            "name": "comments",
+            "color": "table-header-blue",
+            "softDelete": false,
+            "timeStamp": true
+        },
+        {
+            "id": "65lkze",
+            "name": "cover_image",
+            "color": "table-header-green",
+            "softDelete": false,
+            "timeStamp": false
+        },
+        {
+            "id": "chdill",
+            "name": "avatar",
+            "color": "table-header-green",
+            "softDelete": false,
+            "timeStamp": false
+        }
+    ],
+    "columns": {
+        "3i3lhcq": [
+            {
+                "id": "jsk0h6",
+                "name": "id",
+                "type": "integer",
+                "length": "",
+                "defValue": "",
+                "comment": "",
+                "autoInc": true,
+                "nullable": false,
+                "unique": false,
+                "index": false,
+                "unsigned": true,
+                "foreignKey": {
+                    "references": {
+                        "id": "",
+                        "name": ""
+                    },
+                    "on": {
+                        "id": "",
+                        "name": ""
+                    }
+                }
+            },
+            {
+                "id": "38aky",
+                "name": "name",
+                "type": "string",
+                "length": "",
+                "defValue": "",
+                "comment": "",
+                "autoInc": false,
+                "nullable": false,
+                "unique": false,
+                "index": false,
+                "unsigned": false,
+                "foreignKey": {
+                    "references": {
+                        "id": "",
+                        "name": ""
+                    },
+                    "on": {
+                        "id": "",
+                        "name": ""
+                    }
+                }
+            },
+            {
+                "id": "1vi6pl",
+                "name": "email",
+                "type": "string",
+                "length": "",
+                "defValue": "",
+                "comment": "",
+                "autoInc": false,
+                "nullable": false,
+                "unique": true,
+                "index": false,
+                "unsigned": false,
+                "foreignKey": {
+                    "references": {
+                        "id": "",
+                        "name": ""
+                    },
+                    "on": {
+                        "id": "",
+                        "name": ""
+                    }
+                }
+            },
+            {
+                "id": "6cg325",
+                "name": "password",
+                "type": "string",
+                "length": "",
+                "defValue": "",
+                "comment": "",
+                "autoInc": false,
+                "nullable": false,
+                "unique": false,
+                "index": false,
+                "unsigned": false,
+                "foreignKey": {
+                    "references": {
+                        "id": "",
+                        "name": ""
+                    },
+                    "on": {
+                        "id": "",
+                        "name": ""
+                    }
+                }
+            },
+            {
+                "id": "90i6p",
+                "name": "remember_token",
+                "type": "string",
+                "length": "100",
+                "defValue": "",
+                "comment": "",
+                "autoInc": false,
+                "nullable": true,
+                "unique": false,
+                "index": false,
+                "unsigned": false,
+                "foreignKey": {
+                    "references": {
+                        "id": "",
+                        "name": ""
+                    },
+                    "on": {
+                        "id": "",
+                        "name": ""
+                    }
+                }
+            },
+            {
+                "id": "beo3jp",
+                "name": "bibliography",
+                "type": "text",
+                "length": "",
+                "defValue": "",
+                "comment": "",
+                "autoInc": false,
+                "nullable": false,
+                "unique": false,
+                "index": false,
+                "unsigned": false,
+                "foreignKey": {
+                    "references": {
+                        "id": "",
+                        "name": ""
+                    },
+                    "on": {
+                        "id": "",
+                        "name": ""
+                    }
+                }
+            },
+            {
+                "id": "1hpnfx",
+                "name": "avatar_id",
+                "type": "integer",
+                "length": "",
+                "defValue": "",
+                "comment": "",
+                "autoInc": false,
+                "nullable": false,
+                "unique": false,
+                "index": false,
+                "unsigned": true,
+                "foreignKey": {
+                    "references": {
+                        "id": "wdyl9u",
+                        "name": "id"
+                    },
+                    "on": {
+                        "id": "chdill",
+                        "name": "avatar"
+                    }
+                }
+            }
+        ],
+        "1van6k": [
+            {
+                "id": "lvx3pb",
+                "name": "id",
+                "type": "integer",
+                "length": "",
+                "defValue": "",
+                "comment": "",
+                "autoInc": true,
+                "nullable": false,
+                "unique": false,
+                "index": false,
+                "unsigned": false,
+                "foreignKey": {
+                    "references": {
+                        "id": "",
+                        "name": ""
+                    },
+                    "on": {
+                        "id": "",
+                        "name": ""
+                    }
+                }
+            },
+            {
+                "id": "5xd2w",
+                "name": "user_id",
+                "type": "integer",
+                "length": "",
+                "defValue": "",
+                "comment": "",
+                "autoInc": false,
+                "nullable": false,
+                "unique": false,
+                "index": false,
+                "unsigned": true,
+                "foreignKey": {
+                    "references": {
+                        "id": "jsk0h6",
+                        "name": "id"
+                    },
+                    "on": {
+                        "id": "3i3lhcq",
+                        "name": "users"
+                    }
+                }
+            },
+            {
+                "id": "tiysvh",
+                "name": "title",
+                "type": "string",
+                "length": "45",
+                "defValue": "",
+                "comment": "",
+                "autoInc": false,
+                "nullable": false,
+                "unique": false,
+                "index": false,
+                "unsigned": false,
+                "foreignKey": {
+                    "references": {
+                        "id": "",
+                        "name": ""
+                    },
+                    "on": {
+                        "id": "",
+                        "name": ""
+                    }
+                }
+            },
+            {
+                "id": "motii",
+                "name": "content",
+                "type": "string",
+                "length": "200",
+                "defValue": "",
+                "comment": "",
+                "autoInc": false,
+                "nullable": false,
+                "unique": false,
+                "index": false,
+                "unsigned": false,
+                "foreignKey": {
+                    "references": {
+                        "id": "",
+                        "name": ""
+                    },
+                    "on": {
+                        "id": "",
+                        "name": ""
+                    }
+                }
+            },
+            {
+                "id": "brsmc",
+                "name": "slug",
+                "type": "string",
+                "length": "",
+                "defValue": "",
+                "comment": "",
+                "autoInc": false,
+                "nullable": false,
+                "unique": false,
+                "index": false,
+                "unsigned": false,
+                "foreignKey": {
+                    "references": {
+                        "id": "",
+                        "name": ""
+                    },
+                    "on": {
+                        "id": "",
+                        "name": ""
+                    }
+                }
+            },
+            {
+                "id": "a9lxh",
+                "name": "cover_image_id",
+                "type": "integer",
+                "length": "",
+                "defValue": "",
+                "comment": "",
+                "autoInc": false,
+                "nullable": false,
+                "unique": false,
+                "index": false,
+                "unsigned": true,
+                "foreignKey": {
+                    "references": {
+                        "id": "mfhxk",
+                        "name": "id"
+                    },
+                    "on": {
+                        "id": "65lkze",
+                        "name": "cover_image"
+                    }
+                }
+            }
+        ],
+        "ooch1": [
+            {
+                "id": "0cg6yg",
+                "name": "id",
+                "type": "integer",
+                "length": "",
+                "defValue": "",
+                "comment": "",
+                "autoInc": true,
+                "nullable": false,
+                "unique": false,
+                "index": false,
+                "unsigned": false,
+                "foreignKey": {
+                    "references": {
+                        "id": "",
+                        "name": ""
+                    },
+                    "on": {
+                        "id": "",
+                        "name": ""
+                    }
+                }
+            },
+            {
+                "id": "0lfgke",
+                "name": "post_id",
+                "type": "integer",
+                "length": "",
+                "defValue": "",
+                "comment": "",
+                "autoInc": false,
+                "nullable": false,
+                "unique": false,
+                "index": false,
+                "unsigned": true,
+                "foreignKey": {
+                    "references": {
+                        "id": "lvx3pb",
+                        "name": "id"
+                    },
+                    "on": {
+                        "id": "1van6k",
+                        "name": "posts"
+                    }
+                }
+            },
+            {
+                "id": "z70zno",
+                "name": "reply",
+                "type": "string",
+                "length": "45",
+                "defValue": "",
+                "comment": "",
+                "autoInc": false,
+                "nullable": false,
+                "unique": false,
+                "index": false,
+                "unsigned": false,
+                "foreignKey": {
+                    "references": {
+                        "id": "",
+                        "name": ""
+                    },
+                    "on": {
+                        "id": "",
+                        "name": ""
+                    }
+                }
+            }
+        ],
+        "u5hmv": [
+            {
+                "id": "7ww8y",
+                "name": "email",
+                "type": "string",
+                "length": "",
+                "defValue": "",
+                "comment": "",
+                "autoInc": false,
+                "nullable": false,
+                "unique": false,
+                "index": true,
+                "unsigned": false,
+                "foreignKey": {
+                    "references": {
+                        "id": "",
+                        "name": ""
+                    },
+                    "on": {
+                        "id": "",
+                        "name": ""
+                    }
+                }
+            },
+            {
+                "id": "j1m6qb",
+                "name": "token",
+                "type": "string",
+                "length": "",
+                "defValue": "",
+                "comment": "",
+                "autoInc": false,
+                "nullable": false,
+                "unique": false,
+                "index": false,
+                "unsigned": false,
+                "foreignKey": {
+                    "references": {
+                        "id": "",
+                        "name": ""
+                    },
+                    "on": {
+                        "id": "",
+                        "name": ""
+                    }
+                }
+            },
+            {
+                "id": "rh11bd",
+                "name": "created_at",
+                "type": "dateTime",
+                "length": "",
+                "defValue": "",
+                "comment": "",
+                "autoInc": false,
+                "nullable": true,
+                "unique": false,
+                "index": false,
+                "unsigned": false,
+                "foreignKey": {
+                    "references": {
+                        "id": "",
+                        "name": ""
+                    },
+                    "on": {
+                        "id": "",
+                        "name": ""
+                    }
+                }
+            }
+        ],
+        "65lkze": [
+            {
+                "id": "mfhxk",
+                "name": "id",
+                "type": "integer",
+                "length": "",
+                "defValue": "",
+                "comment": "",
+                "autoInc": true,
+                "nullable": false,
+                "unique": false,
+                "index": false,
+                "unsigned": false,
+                "foreignKey": {
+                    "references": {
+                        "id": "",
+                        "name": ""
+                    },
+                    "on": {
+                        "id": "",
+                        "name": ""
+                    }
+                }
+            },
+            {
+                "id": "epe1gy",
+                "name": "handle",
+                "type": "string",
+                "length": "",
+                "defValue": "",
+                "comment": "",
+                "autoInc": false,
+                "nullable": false,
+                "unique": false,
+                "index": false,
+                "unsigned": false,
+                "foreignKey": {
+                    "references": {
+                        "id": "",
+                        "name": ""
+                    },
+                    "on": {
+                        "id": "",
+                        "name": ""
+                    }
+                }
+            }
+        ],
+        "chdill": [
+            {
+                "id": "wdyl9u",
+                "name": "id",
+                "type": "integer",
+                "length": "",
+                "defValue": "",
+                "comment": "",
+                "autoInc": true,
+                "nullable": false,
+                "unique": false,
+                "index": false,
+                "unsigned": false,
+                "foreignKey": {
+                    "references": {
+                        "id": "",
+                        "name": ""
+                    },
+                    "on": {
+                        "id": "",
+                        "name": ""
+                    }
+                }
+            },
+            {
+                "id": "ril27f",
+                "name": "handle",
+                "type": "string",
+                "length": "",
+                "defValue": "",
+                "comment": "",
+                "autoInc": false,
+                "nullable": false,
+                "unique": false,
+                "index": false,
+                "unsigned": false,
+                "foreignKey": {
+                    "references": {
+                        "id": "",
+                        "name": ""
+                    },
+                    "on": {
+                        "id": "",
+                        "name": ""
+                    }
+                }
+            }
+        ]
+    },
+    "relations": [
+        {
+            "source": {
+                "columnId": "5xd2w",
+                "tableId": "1van6k"
+            },
+            "target": {
+                "columnId": "jsk0h6",
+                "tableId": "3i3lhcq"
+            }
+        },
+        {
+            "source": {
+                "columnId": "0lfgke",
+                "tableId": "ooch1"
+            },
+            "target": {
+                "columnId": "lvx3pb",
+                "tableId": "1van6k"
+            }
+        },
+        {
+            "source": {
+                "columnId": "a9lxh",
+                "tableId": "1van6k"
+            },
+            "target": {
+                "columnId": "mfhxk",
+                "tableId": "65lkze"
+            }
+        },
+        {
+            "source": {
+                "columnId": "1hpnfx",
+                "tableId": "3i3lhcq"
+            },
+            "target": {
+                "columnId": "wdyl9u",
+                "tableId": "chdill"
+            }
+        }
+    ]
+}

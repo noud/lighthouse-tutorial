@@ -1,0 +1,63 @@
+"A datetime string with format `Y-m-d H:i:s`, e.g. `2018-01-01 13:00:00`."
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+
+"A date string with format `Y-m-d`, e.g. `2011-05-23`."
+scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
+
+type Query {
+    me: User @auth(model: "App\\Models\\User")
+    # users: [User!]! @middleware(checks: ["auth:api"]) @paginate(type: "paginator" model: "App\\Models\\User")
+    users: [User!]! @all(model: "App\\Models\\User")
+    user(id: ID @eq): User @find(model: "App\\Models\\User")
+}
+
+type Avatar {
+    id: ID!
+    handle: String!
+}
+
+type User {
+    id: ID!
+    name: String!
+    email: String!
+    bibliography: String!
+    avatar: Avatar! @belongsTo
+    created_at: DateTime!
+    updated_at: DateTime!
+    # posts: [Post!]! @hasMany
+}
+
+input CreateUserInput {
+    refreshTokenname: String @rules(apply: ["required", "min:4"])
+    name: String!
+    bibliography: String!
+    email: String @rules(apply: ["email"])
+#   email: String @rules(apply: ["unique:users,email"])
+    password: String!
+}
+
+type Mutation {
+#  createUser(name: String!, email: String!, password: String!): User! @create
+#  createUser(
+#    name: String @rules(apply: ["required", "min:4"])
+#    email: String @rules(apply: ["email"])
+#    password: String!
+#  ): User! @create
+  createUser(
+      input: CreateUserInput! @spread
+  ): User! @create
+  updateUser(id: ID!, name: String): User @update
+  deleteUser(id: ID!): User @delete
+}
+
+extend type Mutation {
+    login(input: LoginInput): AuthPayload! @field(resolver: "Joselfonseca\\LighthouseGraphQLPassport\\GraphQL\\Mutations\\Login@resolve")
+    refreshToken(input: RefreshTokenInput): AuthPayload! @field(resolver: "Joselfonseca\\LighthouseGraphQLPassport\\GraphQL\\Mutations\\RefreshToken@resolve")
+    logout: LogoutResponse! @field(resolver: "Joselfonseca\\LighthouseGraphQLPassport\\GraphQL\\Mutations\\Logout@resolve")
+    forgotPassword(input: ForgotPasswordInput!): ForgotPasswordResponse! @field(resolver: "Joselfonseca\\LighthouseGraphQLPassport\\GraphQL\\Mutations\\ForgotPassword@resolve")
+    updateForgottenPassword(input: NewPasswordWithCodeInput): ForgotPasswordResponse! @field(resolver: "Joselfonseca\\LighthouseGraphQLPassport\\GraphQL\\Mutations\\ResetPassword@resolve")
+    register(input: RegisterInput @spread): AuthPayload! @field(resolver: "Joselfonseca\\LighthouseGraphQLPassport\\GraphQL\\Mutations\\Register@resolve")
+}
+
+#import auth.graphql
+#import blog.graphql

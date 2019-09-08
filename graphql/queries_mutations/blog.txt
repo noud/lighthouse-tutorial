@@ -1,0 +1,57 @@
+{
+  posts(first: 10) {
+    data {
+      id
+      slug
+      title
+      coverImage {
+        id
+        handle
+      }
+      comments {
+        id
+        reply
+      }
+    }
+    paginatorInfo {
+      currentPage
+      lastPage
+      count
+    }
+  }
+}
+
+{
+  post(id: 6) {
+    id
+    slug
+    title
+    coverImage {
+      id
+      handle
+    }
+    content
+    user {
+      id
+      name
+    }
+    comments {
+      id
+      reply
+    }
+  }
+}
+
+mutation {
+  createPost(input: { title: "Donald", content: "d3@d.nl" }) {
+    id
+    title
+  }
+}
+
+mutation {
+  updatePost(input: {id: "6", title: "AAAABCDEFGHIJKLMNO"}){
+    id
+    title
+  }
+}

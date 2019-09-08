@@ -1,0 +1,59 @@
+{
+  me {
+    name
+    email
+  }
+}
+
+{
+  user(id: 11) {
+    id
+    name
+    email
+  }
+}
+
+mutation {
+  createUser(input: { name: "Donald", email: "d3@d.nl", password: "secret" }) {
+    id
+    name
+  }
+}
+
+{
+  user(id: 11) {
+    id
+    name
+    email
+  }
+}
+
+mutation {
+  updateUser(id: "11" name: "Hillary"){
+    id
+    name
+  }
+}
+
+mutation {
+  deleteUser(id: "11"){
+    name
+  }
+}
+
+mutation {
+  login(input: {
+    username: "myemail@email.com",
+    password: "123456789qq"
+  }) {
+    access_token
+    refresh_token
+    expires_in
+    token_type
+    user {
+      id
+      email
+      name
+    }
+  }
+}

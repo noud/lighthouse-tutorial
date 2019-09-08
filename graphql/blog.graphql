@@ -1,0 +1,52 @@
+extend type Query {
+    posts: [Post!]! @paginate
+    # posts(first: Int!, page: Int): PostPaginator
+    post(id: Int! @eq): Post @find
+}
+
+type Post {
+    id: ID!
+    title: String!
+    slug: String!
+    content: String!
+    coverImage: CoverImage! @belongsTo
+    user: User! @belongsTo
+    comments: [Comment!]! @hasMany
+}
+
+# type PostPaginator {
+#     data: [Post!]!
+#     paginatorInfo: PaginatorInfo!
+# }
+
+type CoverImage {
+    id: ID!
+    handle: String!
+}
+
+type Comment{
+    id: ID!
+    reply: String!
+    post: Post! @belongsTo
+}
+
+input CreatePostInput {
+    title: String @rules(apply: ["required", "min:4"])
+    content: String @rules(apply: ["email"])
+}
+
+input UpdatePostInput {
+    id: ID!
+    title: String @rules(apply: ["required", "min:4"])
+}
+
+type Subscription {
+    postUpdated(user: ID): Post
+}
+
+extend type Mutation {
+    createPost(
+      input: CreatePostInput! @spread
+  ): Post! @create
+    updatePost(input: UpdatePostInput! @spread): Post @update @broadcast(subscription: "postUpdated")
+}
