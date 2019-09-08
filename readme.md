@@ -1,11 +1,14 @@
-## Schema Builder
+## Entity Relationship to SQL
 
 ![Schema Builder](./docs/blog.png?raw=true "Schema Builder")
 
-## Model generation from SQL
-
 ```
 php artisan migrate
+```
+
+## Models generation from SQL
+
+```
 php artisan code:models
 ```
 
