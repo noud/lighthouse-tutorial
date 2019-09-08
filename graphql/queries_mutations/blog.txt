@@ -12,6 +12,7 @@
         id
         reply
       }
+      dateAndTime
     }
     paginatorInfo {
       currentPage
@@ -22,7 +23,7 @@
 }
 
 {
-  post(id: 6) {
+  post(id: { id: 6 }) {
     id
     slug
     title
@@ -39,6 +40,7 @@
       id
       reply
     }
+    dateAndTime
   }
 }
 

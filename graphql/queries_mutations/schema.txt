@@ -5,14 +5,6 @@
   }
 }
 
-{
-  user(id: 11) {
-    id
-    name
-    email
-  }
-}
-
 mutation {
   createUser(input: { name: "Donald", email: "d3@d.nl", password: "secret" }) {
     id
@@ -54,6 +46,20 @@ mutation {
       id
       email
       name
+    }
+  }
+}
+
+{
+  users(first: 20) {
+    data {
+      id
+      email
+      bibliography
+      avatar {
+        id
+        handle
+      }
     }
   }
 }
