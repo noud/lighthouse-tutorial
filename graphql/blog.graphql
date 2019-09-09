@@ -10,7 +10,7 @@ type Post {
     slug: String!
     content: String!
     coverImage: CoverImage! @belongsTo
-    user: User! @belongsTo
+    author: User! @belongsTo
     comments: [Comment!]! @hasMany
     dateAndTime: String @rename(attribute: "updated_at")
     updated_at: DateTime!
@@ -42,7 +42,7 @@ input UpdatePostInput {
 }
 
 type Subscription {
-  postUpdated(user: ID): [Post!]!
+  postUpdated(author: ID): Post
 }
 
 extend type Mutation {

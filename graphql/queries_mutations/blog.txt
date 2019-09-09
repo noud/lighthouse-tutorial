@@ -59,6 +59,7 @@ mutation {
 }
 
 # activate subscription
+# https://stackoverflow.com/questions/57180186/lighthouse-graphql-subscriptions
 
 subscription PostUpdated {
     postUpdated(id: 11) {
