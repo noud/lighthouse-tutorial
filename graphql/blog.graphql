@@ -42,7 +42,7 @@ input UpdatePostInput {
 }
 
 type Subscription {
-    postUpdated(user: ID): Post
+  postUpdated(user: ID): [Post!]!
 }
 
 extend type Mutation {

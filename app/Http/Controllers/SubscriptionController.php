@@ -8,12 +8,16 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
-class EventController extends Controller
+class SubscriptionController extends Controller
 {
     public function trigger()
     {
-        event(new MyEvent('hello world via Event'));
-        \Log::debug('Event.');
+        $post = Post::find(6);
+        $post->title = 'TEST7';
+        $post->save();
+        
+        \Nuwave\Lighthouse\Execution\Utils\Subscription::broadcast('postUpdated', $post, true);
+        \Log::debug('Subscription.');
         return "done";
     }
 

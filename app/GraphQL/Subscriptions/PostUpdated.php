@@ -3,13 +3,14 @@
 namespace App\GraphQL\Subscriptions;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Nuwave\Lighthouse\Subscriptions\Subscriber;
 use Nuwave\Lighthouse\Schema\Types\GraphQLSubscription;
 
 use GraphQL\Type\Definition\ResolveInfo;
 use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
-use \Str;
+use Illuminate\Support\Str;
 
 class postUpdated extends GraphQLSubscription
 {
@@ -22,8 +23,10 @@ class postUpdated extends GraphQLSubscription
      */
     public function authorize(Subscriber $subscriber, Request $request): bool
     {
-        // TODO implement authorize
-        return true;
+        $user = $subscriber->context->user;
+        $author = User::find($subscriber->args['author']);
+
+        return $user->can('viewPosts', $author);
     }
 
     /**
@@ -35,8 +38,11 @@ class postUpdated extends GraphQLSubscription
      */
     public function filter(Subscriber $subscriber, $root): bool
     {
-        // TODO implement filter
-        return true;
+        $user = $subscriber->context->user;
+
+        // Don't broadcast the subscription to the same
+        // person who updated the post.
+        return $root->updated_by !== $user->id;
     }
 
     /**
@@ -49,14 +55,10 @@ class postUpdated extends GraphQLSubscription
     public function encodeTopic(Subscriber $subscriber, string $fieldName): string
     {
         // Optionally create a unique topic name based on the
-        // `user` argument.
+        // `author` argument.
         $args = $subscriber->args;
-
-        \Log::debug('encodeTopic.'.$args['user']);
-//        \Log::debug('encodeTopic.'.$args['author']);
-
-        //return Str::snake($fieldName);
-        return Str::snake($fieldName).':'.$args['user'];
+        \Log::debug('encodeTopic.');
+        return Str::snake($fieldName).':'.$args['author'];
     }
 
     /**
@@ -69,10 +71,9 @@ class postUpdated extends GraphQLSubscription
     public function decodeTopic(string $fieldName, $root): string
     {
         // Decode the topic name if the `encodeTopic` has been overwritten.
-        $user_id = $root->user_id;
-        \Log::debug('decodeTopic: '.Str::snake($fieldName).':'.$user_id);
-
-        return Str::snake($fieldName).':'.$user_id;
+        $author_id = $root->author_id;
+        \Log::debug('decodeTopic.');
+        return Str::snake($fieldName).':'.$author_id;
     }
 
     /**
@@ -88,7 +89,7 @@ class postUpdated extends GraphQLSubscription
     {
         // Optionally manipulate the `$root` item before it gets broadcasted to
         // subscribed client(s).
-//        $root->load(['user', 'user.posts', 'posts']);
+        $root->load(['author', 'author.achievements']);
 
         return $root;
     }

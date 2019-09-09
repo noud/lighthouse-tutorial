@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 Route::get('/event/trigger', 'EventController@trigger');
 Route::get('/pusher/trigger', 'PusherController@trigger');
+Route::get('/subscription/trigger', 'SubscriptionController@trigger');

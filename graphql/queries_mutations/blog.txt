@@ -57,3 +57,11 @@ mutation {
     title
   }
 }
+
+# activate subscription
+
+subscription PostUpdated {
+    postUpdated(id: 11) {
+        id
+    }
+}

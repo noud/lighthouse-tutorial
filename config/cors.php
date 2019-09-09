@@ -21,6 +21,8 @@ return [
 
         'allow_origins' => [
             'http://localhost:3000/',
+            'http://localhost:8000/',
+            'http://schema.localhost/',
         ],
 
         'allow_methods' => [
