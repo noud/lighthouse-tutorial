@@ -2,6 +2,11 @@
 /app/Models/Base/*
 /database/migrations/*
 
+# webpack
+/public/css/*
+/public/js/*
+/public/min-manifest.json
+
 /node_modules
 /public/hot
 /public/storage
