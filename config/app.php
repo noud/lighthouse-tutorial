@@ -171,6 +171,7 @@ return [
         \Nuwave\Lighthouse\Tracing\TracingServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
         \Agontuk\Schema\SchemaServiceProvider::class,
+        Tightenco\Ziggy\ZiggyServiceProvider::class,
 
         /*
          * Application Service Providers...

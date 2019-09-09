@@ -1,0 +1,7 @@
+extend type Mutation {
+    triggerTestSubscription: Boolean @field(resolver: "App\\GraphQL\\Mutations\\TriggerTestSubscriptionMutation@resolve")
+}
+
+extend type Subscription {
+    test: Int @subscription(class: "App\\GraphQL\\Subscriptions\\TestSubscription")
+}

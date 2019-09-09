@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Lighthouse Tutorial</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -79,15 +79,25 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Lighthouse Tutorial
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="/event/trigger">Event</a>
+                    <a href="/pusher/trigger">Pusher</a>
+                    Subscription <a href="/test">Test</a> <a href="/subscription/trigger">Trigger</a>
+                </div>
+
+                <div class="links">
+                    <a href="/laravel-websockets">Websockets Dashboard</a>
+                </div>
+
+                <div class="links">
+                    <a href="/graphql-playground">Graphql Playground</a>
+                </div>
+
+                <div class="links">
+                    <a href="/schema">Entity-Relationship diagram</a>
                 </div>
             </div>
         </div>

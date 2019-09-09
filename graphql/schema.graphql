@@ -56,3 +56,4 @@ extend type Mutation {
 
 #import auth.graphql
 #import blog.graphql
+#import test.graphql
