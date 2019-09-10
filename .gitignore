@@ -5,7 +5,7 @@
 # webpack
 /public/css/*
 /public/js/*
-/public/min-manifest.json
+/public/mix-manifest.json
 
 /node_modules
 /public/hot
