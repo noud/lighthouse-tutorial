@@ -23,6 +23,7 @@ class postUpdated extends GraphQLSubscription
      */
     public function authorize(Subscriber $subscriber, Request $request): bool
     {
+        return true;
         $user = $subscriber->context->user;
         $author = User::find($subscriber->args['author']);
 
@@ -38,6 +39,7 @@ class postUpdated extends GraphQLSubscription
      */
     public function filter(Subscriber $subscriber, $root): bool
     {
+        return true;
         $user = $subscriber->context->user;
 
         // Don't broadcast the subscription to the same
@@ -54,10 +56,11 @@ class postUpdated extends GraphQLSubscription
      */
     public function encodeTopic(Subscriber $subscriber, string $fieldName): string
     {
+        \Log::debug('encodeTopic.');
         // Optionally create a unique topic name based on the
         // `author` argument.
         $args = $subscriber->args;
-        \Log::debug('encodeTopic.');
+        
         return Str::snake($fieldName).':'.$args['author'];
     }
 
@@ -70,9 +73,10 @@ class postUpdated extends GraphQLSubscription
      */
     public function decodeTopic(string $fieldName, $root): string
     {
+        \Log::debug('decodeTopic.');
         // Decode the topic name if the `encodeTopic` has been overwritten.
         $author_id = $root->author_id;
-        \Log::debug('decodeTopic.');
+        
         return Str::snake($fieldName).':'.$author_id;
     }
 
@@ -87,6 +91,7 @@ class postUpdated extends GraphQLSubscription
      */
     public function resolve($root, array $args, GraphQLContext $context, ResolveInfo $resolveInfo): Post
     {
+        return $root;
         // Optionally manipulate the `$root` item before it gets broadcasted to
         // subscribed client(s).
         $root->load(['author', 'author.achievements']);

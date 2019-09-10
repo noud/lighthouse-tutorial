@@ -41,11 +41,13 @@ input UpdatePostInput {
     title: String @rules(apply: ["required", "min:4"])
 }
 
-type Subscription {
-  postUpdated(author: ID): Post
-}
+# type Subscription {
+#   postUpdated(author: ID): Post
+# }
 
 extend type Mutation {
     createPost(input: CreatePostInput! @spread): Post! @create
-    updatePost(input: UpdatePostInput! @spread): Post @update @broadcast(subscription: "postUpdated")
+#    updatePost(input: UpdatePostInput! @spread): Post @update @broadcast(subscription: "postUpdated")
 }
+
+#import blog.subscription.graphql
