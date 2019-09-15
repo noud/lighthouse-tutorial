@@ -1,6 +1,7 @@
 type Subscription {
     #postUpdated(author: ID): Post
-    triggerPostUpdated(author: ID): Post @field(resolver: "App\\GraphQL\\Mutations\\TriggerPostUpdatedMutation@resolve")
+    # triggerPostUpdated(author: ID): Post @field(resolver: "App\\GraphQL\\Mutations\\TriggerPostUpdatedMutation@resolve")
+    triggerPostUpdated: Post @field(resolver: "App\\GraphQL\\Mutations\\TriggerPostUpdatedMutation@resolve")
 }
 
 extend type Mutation {

@@ -24,10 +24,10 @@ class postUpdated extends GraphQLSubscription
     public function authorize(Subscriber $subscriber, Request $request): bool
     {
         return true;
-        $user = $subscriber->context->user;
-        $author = User::find($subscriber->args['author']);
+        // $user = $subscriber->context->user;
+        // $author = User::find($subscriber->args['author']);
 
-        return $user->can('viewPosts', $author);
+        // return $user->can('viewPosts', $author);
     }
 
     /**
@@ -40,11 +40,11 @@ class postUpdated extends GraphQLSubscription
     public function filter(Subscriber $subscriber, $root): bool
     {
         return true;
-        $user = $subscriber->context->user;
+        // $user = $subscriber->context->user;
 
-        // Don't broadcast the subscription to the same
-        // person who updated the post.
-        return $root->updated_by !== $user->id;
+        // // Don't broadcast the subscription to the same
+        // // person who updated the post.
+        // return $root->updated_by !== $user->id;
     }
 
     /**
@@ -57,11 +57,12 @@ class postUpdated extends GraphQLSubscription
     public function encodeTopic(Subscriber $subscriber, string $fieldName): string
     {
         \Log::debug('encodeTopic.');
-        // Optionally create a unique topic name based on the
-        // `author` argument.
-        $args = $subscriber->args;
+        return Str::snake($fieldName);
+        // // Optionally create a unique topic name based on the
+        // // `author` argument.
+        // $args = $subscriber->args;
         
-        return Str::snake($fieldName).':'.$args['author'];
+        // return Str::snake($fieldName).':'.$args['author'];
     }
 
     /**
@@ -74,10 +75,11 @@ class postUpdated extends GraphQLSubscription
     public function decodeTopic(string $fieldName, $root): string
     {
         \Log::debug('decodeTopic.');
-        // Decode the topic name if the `encodeTopic` has been overwritten.
-        $author_id = $root->author_id;
+        return Str::snake($fieldName);
+        // // Decode the topic name if the `encodeTopic` has been overwritten.
+        // $author_id = $root->author_id;
         
-        return Str::snake($fieldName).':'.$author_id;
+        // return Str::snake($fieldName).':'.$author_id;
     }
 
     /**
@@ -91,11 +93,12 @@ class postUpdated extends GraphQLSubscription
      */
     public function resolve($root, array $args, GraphQLContext $context, ResolveInfo $resolveInfo): Post
     {
+        \Log::debug('resolve.');
         return $root;
-        // Optionally manipulate the `$root` item before it gets broadcasted to
-        // subscribed client(s).
-        $root->load(['author', 'author.achievements']);
+        // // Optionally manipulate the `$root` item before it gets broadcasted to
+        // // subscribed client(s).
+        // $root->load(['author', 'author.achievements']);
 
-        return $root;
+        // return $root;
     }
 }

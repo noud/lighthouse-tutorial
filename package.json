@@ -23,7 +23,6 @@
         "eslint-plugin-vue": "^5.2.2",
         "fuse.js": "^3.4.2",
         "graphql": "^14.3.1",
-        "laravel-echo": "^1.5.4",
         "laravel-mix": "^4.0.7",
         "lodash": "^4.17.13",
         "postcss-import": "^12.0.1",
@@ -38,6 +37,7 @@
     },
     "dependencies": {
         "graphql-tag": "^2.10.1",
+        "laravel-echo": "^1.5.4",
         "pusher-js": "^5.0.1"
     }
 }

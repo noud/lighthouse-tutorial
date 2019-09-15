@@ -12,6 +12,8 @@ class WebSocketHandler extends \BeyondCode\LaravelWebSockets\WebSockets\WebSocke
 {
     public function onMessage(ConnectionInterface $connection, MessageInterface $message)
     {
+        \Log::debug('onMessage.');
+       
         if ($message->getPayload()) {
             $payload = json_decode($message->getPayload(), true);
 
