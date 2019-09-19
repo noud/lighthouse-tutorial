@@ -1,0 +1,244 @@
+{
+	"info": {
+		"_postman_id": "d213a7ec-c92d-43ce-a37f-6fe6591aa5f1",
+		"name": "lighthouse-turorial-schema",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "me",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\n  me {\n    name\n    email\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/graphql",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mutate user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\n  createUser(input: { name: \"Donald\", email: \"d3@d.nl\", password: \"secret\" }) {\n    id\n    name\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/graphql",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user 11",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\n  user(id: 11) {\n    id\n    name\n    email\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/graphql",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mutate user 11",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\n  updateUser(id: \"11\" name: \"Hillary\"){\n    id\n    name\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/graphql",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user 11",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\n  deleteUser(id: \"11\"){\n    name\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/graphql",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\n  login(input: {\n    username: \"myemail@email.com\",\n    password: \"123456789qq\"\n  }) {\n    access_token\n    refresh_token\n    expires_in\n    token_type\n    user {\n      id\n      email\n      name\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/graphql",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list users (authenticated)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjM4MjhiY2IyOGI2YzcxYjEyMDdlYzc2NWFlNDRhOTVjZTBmZjk3Yjk0NWRmYWQxYjFiMmI5ZWNiODc1YjI1OWQyN2Q5YzNmNjYwY2JjZmJiIn0.eyJhdWQiOiIyIiwianRpIjoiMzgyOGJjYjI4YjZjNzFiMTIwN2VjNzY1YWU0NGE5NWNlMGZmOTdiOTQ1ZGZhZDFiMWIyYjllY2I4NzViMjU5ZDI3ZDljM2Y2NjBjYmNmYmIiLCJpYXQiOjE1Njg5MjI3NDgsIm5iZiI6MTU2ODkyMjc0OCwiZXhwIjoxNjAwNTQ1MTQ4LCJzdWIiOiIyMSIsInNjb3BlcyI6W119.iIrRPt7UWse9GQ89ZdacVYjnA1vSWXdkkqOoVLHPvtHpwJhbkRrvW1k32xY8N54HkiOUNjQhD0KiO5XNq76VDSkX3tFJ1pgAK8jJ2Y_09Xjo8lX_Nnrna9fe9GTPlH5kjGcL_2NpY4NtlruYjHVsCDo3SvVF61WBzV8b36LHkNjdrClZnnyUZKK0NSB_b87ClM3MM8xNsbcEE__ZXbkmnCCR98wnX9-fkNx469I1vd4N3LvdMWZ4t455VlYTayo5zIOk7HLQ-vyaRRTDJI-doyGJ0etfxP3ukEWOB82XWoEmRZhnVFtC_2Mqc1Jp0n-RjKMrPZ5PLVG-rXf6_O_uiRBj_f66NYgeLUd3hjv8wlq-6zNi4yDrNHofgMTB2xv9SsUgMPVT0BhNf81_hCTcBAJoVxol4PWYCEz3MLOwgpwJ8CU9UuqUrd6QPofjGLUz9hbmDmvrVK-CQ_1Zo_MH1yp2Oodetc4Nt5P_OGcwJpDFiyQtPrqHHyyvq8G_8PuvSDVoytBxnvCfB76CTvJhpFXtwxT1uFxkB5TEctYh4GAazczAlni9OXHgzWDSuyiyspWFWkJN7szoaL7zylVJvnFYI8OftFKtHAPQsosRak8fbVmJG_xf2JvwikEWDqHOxwDxszpruac2erTCiPPsqllX7Fwou-33CfPzan8PMyY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\n  users(first: 20) {\n    data {\n      id\n      email\n      bibliography\n      avatar {\n        id\n        handle\n      }\n    }\n  }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/graphql",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
