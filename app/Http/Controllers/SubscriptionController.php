@@ -16,7 +16,7 @@ class SubscriptionController extends Controller
         $post->title = 'TEST7';
         $post->save();
         
-        \Nuwave\Lighthouse\Execution\Utils\Subscription::broadcast('postUpdated', $post, true);
+        \Nuwave\Lighthouse\Execution\Utils\Subscription::broadcast('triggerTestSubscription', $post, true);
         \Log::debug('Subscription.');
         return "done";
     }
