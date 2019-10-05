@@ -16,7 +16,7 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "{\n  posts(first: 3) {\n    data {\n      id\n      slug\n      title\n      coverImage {\n        id\n        handle\n      }\n      comments {\n        id\n        reply\n      }\n      dateAndTime\n    }\n    paginatorInfo {\n      currentPage\n      lastPage\n      count\n    }\n  }\n}",
+						"query": "{\n  paginated_posts(first: 3) {\n    data {\n      id\n      slug\n      title\n      coverImage {\n        id\n        handle\n      }\n      comments {\n        id\n        reply\n      }\n      dateAndTime\n    }\n    paginatorInfo {\n      currentPage\n      lastPage\n      count\n    }\n  }\n}",
 						"variables": ""
 					}
 				},
@@ -176,7 +176,7 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "{\n  posts(first: 3, title: \"AA\") {\n    data {\n      id\n      slug\n      title\n      coverImage {\n        id\n        handle\n      }\n      comments {\n        id\n        reply\n      }\n      dateAndTime\n    }\n    paginatorInfo {\n      currentPage\n      lastPage\n      count\n    }\n  }\n}",
+						"query": "{\n  paginated_posts(first: 3, title: \"AA\") {\n    data {\n      id\n      slug\n      title\n      coverImage {\n        id\n        handle\n      }\n      comments {\n        id\n        reply\n      }\n      dateAndTime\n    }\n    paginatorInfo {\n      currentPage\n      lastPage\n      count\n    }\n  }\n}",
 						"variables": ""
 					}
 				},

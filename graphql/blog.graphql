@@ -12,9 +12,11 @@ extend type Query {
     # ra-data-opencrud (so far) (paginate error)
     posts: [Post!]! @all
     postsConnection: [Post!]! @all
+    post(id: PostEdit @eq): Post @first
  
     # ra-data-graphql-simple (so far) (paginate error)
-    Post(id: PostInput! @eq): Post @find
+    # Post(id: PostInput! @eq): Post @find
+    Post(id: Int): Post @first
     allPosts: [Post!]! @all
     _allPostsMeta: ListMetadata @all  # fake
 
@@ -24,7 +26,7 @@ extend type Query {
 
     # react apollo
     paginated_posts(first: Int!, page: Int, title: String): [Post!]! @paginate(model: "Post", scopes: ["title"])  # scopes: ["filterAndOrder"]
-    post(id: PostInput! @eq): Post @find
+    single_post(id: PostInput @eq): Post @find
     authors: [User!]! @all(model: "App\\Models\\User")
 }
 
@@ -63,6 +65,11 @@ type Comment{
     post: Post! @belongsTo
 }
 
+input PostEdit {
+    id: ID
+    title: String
+}
+
 input PostInput {
     id: ID!
 }
@@ -83,7 +90,7 @@ input UpdatePostInput {
 
 extend type Mutation {
     createPost(input: CreatePostInput! @spread): Post! @create
-#    updatePost(input: UpdatePostInput! @spread): Post @update @broadcast(subscription: "postUpdated")
+    # updatePost(input: UpdatePostInput! @spread): Post @update @broadcast(subscription: "postUpdated")
 }
 
 #import blog.subscription.graphql
