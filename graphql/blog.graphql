@@ -46,7 +46,7 @@ type Post {
     title: String!
     slug: String
     content: String
-    coverImage: CoverImage! @belongsTo
+    coverImage: CoverImage @belongsTo
     author: User @belongsTo
     comments: [Comment!]! @hasMany
     dateAndTime: String @rename(attribute: "updated_at")
@@ -65,18 +65,20 @@ type Comment{
     post: Post! @belongsTo
 }
 
+# ar-data-graphql
 input PostEdit {
     id: ID
     title: String
 }
 
+# ar-data-graphql
 input PostInput {
-    id: ID!
+    title: String
 }
 
 input CreatePostInput {
-    title: String @rules(apply: ["required", "min:4"])
-    content: String @rules(apply: ["email"])
+    title: String   # @rules(apply: ["required", "min:4"])
+    content: String # @rules(apply: ["email"])
 }
 
 input UpdatePostInput {
@@ -89,8 +91,10 @@ input UpdatePostInput {
 # }
 
 extend type Mutation {
-    createPost(input: CreatePostInput! @spread): Post! @create
+  createPost(title: String!, content: String): Post! @create
+    # createPost(input: CreatePostInput @spread): Post! @create
     # updatePost(input: UpdatePostInput! @spread): Post @update @broadcast(subscription: "postUpdated")
+  deletePost(id: ID!): Post @delete
 }
 
 #import blog.subscription.graphql
