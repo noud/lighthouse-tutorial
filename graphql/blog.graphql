@@ -1,19 +1,55 @@
+
 extend type Query {
-    posts(first: Int!, page: Int): [Post!]! @paginate
+    # ra-data-opencrud (try) (paginate error)
+    # if i now add the Post fields to
+    # /home/noud/workspace/lighthouse-tutorial/vendor/nuwave/lighthouse/src/Pagination/PaginationManipulator.php line 132
+    # and a console message
+    # issing translation for key: "Unknown resource Post. Make sure it has been declared on your server side schema. Known resources are User" 
+    # i get an empty wrong result
+    # posts: [Post!]! @paginate(model: "App\\Models\\Post")
+    # postsConnection(aggregate: Int): [Post!]! @field(resolver: "App\\GraphQL\\Query@postsConnection")
+
+    # ra-data-opencrud (so far) (paginate error)
+    posts: [Post!]! @all
+    postsConnection: [Post!]! @all
+ 
+    # ra-data-graphql-simple (so far) (paginate error)
+    Post(id: PostInput! @eq): Post @find
+    allPosts: [Post!]! @all
+    _allPostsMeta: ListMetadata @all  # fake
+
+    # ra-data-graphql-simple (example)
+    # allPosts(page: Int, perPage: Int): [Post]
+    # allPostsMeta(page: Int, perPage: Int): ListMetadata
+
+    # react apollo
+    paginated_posts(first: Int!, page: Int, title: String): [Post!]! @paginate(model: "Post", scopes: ["title"])  # scopes: ["filterAndOrder"]
     post(id: PostInput! @eq): Post @find
     authors: [User!]! @all(model: "App\\Models\\User")
+}
+
+# ra-data-graphql-simple (faking)
+type ListMetadata {
+    count: Int
+}
+
+# ra-data-opencrud (try fake)
+type Aggregate {
+    id: ID
+    count: Int
 }
 
 type Post {
     id: ID!
     title: String!
-    slug: String!
-    content: String!
+    slug: String
+    content: String
     coverImage: CoverImage! @belongsTo
-    author: User! @belongsTo
+    author: User @belongsTo
     comments: [Comment!]! @hasMany
     dateAndTime: String @rename(attribute: "updated_at")
-    updated_at: DateTime!
+    updated_at: DateTime
+    aggregate: Aggregate    # ra-data-opencrud
 }
 
 type CoverImage {
