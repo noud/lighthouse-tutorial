@@ -21,8 +21,10 @@ php artisan code:models
 ## Clients
 
 - [react-apollo-blog](https://github.com/noud/react-apollo-blog) [React Apollo](https://www.apollographql.com/docs/react/)
-- [react-admin-data-opencrud](https://github.com/noud/react-admin-data-opencrud) [React Admin](https://marmelab.com/react-admin/) [ra-data-opencrud](https://github.com/weakky/ra-data-opencrud#readme) conform [OpenCRUD](https://www.opencrud.org) [ra-data-graphql](https://github.com/marmelab/react-admin/tree/master/packages/ra-data-graphql)
-- [react-admin-data-graphql-simple](https://github.com/noud/react-admin-data-graphql-simple) [React Admin](https://marmelab.com/react-admin/) [ra-data-graphql-simple](https://github.com/marmelab/react-admin/tree/master/packages/ra-data-graphql-simple) [ra-data-graphql](https://github.com/marmelab/react-admin/tree/master/packages/ra-data-graphql)
+- [React Admin](https://marmelab.com/react-admin/) clients based on [ra-data-graphql](https://github.com/marmelab/react-admin/tree/master/packages/ra-data-graphql)
+    - [react-admin-data-opencrud](https://github.com/noud/react-admin-data-opencrud) [ra-data-opencrud](https://github.com/weakky/ra-data-opencrud#readme) conform [OpenCRUD](https://www.opencrud.org)
+    - [react-admin-data-graphqcool](https://github.com/noud/react-admin-data-graphcool) [ra-data-graphcool](https://github.com/marmelab/react-admin/tree/master/packages/ra-data-graphcool) conform [GraphCool)[https://github.com/prisma/graphcool-framework)
+    - [react-admin-data-graphql-simple](https://github.com/noud/react-admin-data-graphql-simple) [ra-data-graphql-simple](https://github.com/marmelab/react-admin/tree/master/packages/ra-data-graphql-simple) conform [json-graphql-server](https://github.com/marmelab/json-graphql-server) 
 
 <div align="center">
   <a href="https://www.lighthouse-php.com">
