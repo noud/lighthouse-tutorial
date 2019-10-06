@@ -21,6 +21,7 @@ php artisan code:models
 ## Clients
 
 - [react-apollo-blog](https://github.com/noud/react-apollo-blog) [React Apollo](https://www.apollographql.com/docs/react/)
+- [react-graphql-code-generator](https://github.com/noud/react-graphql-code-generator) [GraphQL Code Generator](https://graphql-code-generator.com) [React Apollo](https://www.apollographql.com/docs/react/)
 - [React Admin](https://marmelab.com/react-admin/) clients based on [ra-data-graphql](https://github.com/marmelab/react-admin/tree/master/packages/ra-data-graphql)
     - [react-admin-data-opencrud](https://github.com/noud/react-admin-data-opencrud) [ra-data-opencrud](https://github.com/weakky/ra-data-opencrud#readme) conform [OpenCRUD](https://www.opencrud.org)
     - [react-admin-data-graphqcool](https://github.com/noud/react-admin-data-graphcool) [ra-data-graphcool](https://github.com/marmelab/react-admin/tree/master/packages/ra-data-graphcool) conform [GraphCool](https://github.com/prisma/graphcool-framework)
