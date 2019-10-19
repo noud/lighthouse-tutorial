@@ -20,9 +20,11 @@ const mix = require('laravel-mix');
 const path = require('path');
 const tailwindcss = require('tailwindcss');
 
+
 mix
-  .react('resources/react/js/app.js', 'public/react/js')
-  .postCss('resources/react/css/app.css', 'public/react/css', [cssImport(), cssNesting(), tailwindcss()])
+  // .react('resources/react/js/app.js', 'public/react/js')
+  .js('resources/vue/js/app.js', 'public/vue/js')
+  .postCss('resources/vue/css/app.css', 'public/vue/css', [cssImport(), cssNesting(), tailwindcss()])
   .webpackConfig({
     output: { chunkFilename: 'react/js/[name].js?id=[chunkhash]' },
     resolve: {
@@ -31,12 +33,6 @@ mix
       },
     },
   })
-  .version()
-  .sourceMaps();
-
-mix
-  .js('resources/vue/js/app.js', 'public/vue/js')
-  .postCss('resources/vue/css/app.css', 'public/vue/css', [cssImport(), cssNesting(), tailwindcss()])
   .webpackConfig({
     output: { chunkFilename: 'vue/js/[name].js?id=[chunkhash]' },
     resolve: {

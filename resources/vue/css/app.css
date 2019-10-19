@@ -7,3 +7,7 @@
 
 /*!* Utilities *!*/
 @import 'tailwindcss/utilities';
+
+html {
+    color: red;
+}
