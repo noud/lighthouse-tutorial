@@ -20,8 +20,8 @@ const mix = require('laravel-mix');
 const path = require('path');
 const tailwindcss = require('tailwindcss');
 
-
 mix
+  // @todo activating react stops postCss creating file content
   // .react('resources/react/js/app.js', 'public/react/js')
   .js('resources/vue/js/app.js', 'public/vue/js')
   .postCss('resources/vue/css/app.css', 'public/vue/css', [cssImport(), cssNesting(), tailwindcss()])
