@@ -3,6 +3,8 @@
 /database/migrations/*
 
 # webpack
+/public/react/css/*
+/public/react/js/*
 /public/vue/css/*
 /public/vue/js/*
 /public/mix-manifest.json

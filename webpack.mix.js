@@ -21,6 +21,20 @@ const path = require('path');
 const tailwindcss = require('tailwindcss');
 
 mix
+  .react('resources/react/js/app.js', 'public/react/js')
+  .postCss('resources/react/css/app.css', 'public/react/css', [cssImport(), cssNesting(), tailwindcss()])
+  .webpackConfig({
+    output: { chunkFilename: 'react/js/[name].js?id=[chunkhash]' },
+    resolve: {
+      alias: {
+        '@': path.resolve('resources/react/js'),
+      },
+    },
+  })
+  .version()
+  .sourceMaps();
+
+mix
   .js('resources/vue/js/app.js', 'public/vue/js')
   .postCss('resources/vue/css/app.css', 'public/vue/css', [cssImport(), cssNesting(), tailwindcss()])
   .webpackConfig({

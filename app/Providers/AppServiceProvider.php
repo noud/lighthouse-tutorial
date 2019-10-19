@@ -26,7 +26,9 @@ class AppServiceProvider extends ServiceProvider
     {
         // dynamically set the rootview based on whether the route is backend or frontend 
         // can also be done in a middleware that wraps all admin routes
-        if(request()->is('test')){
+        if(request()->is('test-react/*')){
+            Inertia::setRootView('react.app');
+        } elseif(request()->is('test')){
             Inertia::setRootView('vue.app');
         } else {
             // some other

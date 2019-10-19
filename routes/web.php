@@ -1,5 +1,7 @@
 <?php
 
+use Inertia\Inertia;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +17,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/test-react', function () {
+    return Inertia::render('Home', [
+        'foo' => 'bar'
+    ]);
+});
+Route::get('/test-react/about', function () {
+    return Inertia::render('About', [
+        'foo' => 'bar'
+    ]);
+});
+Route::get('/test-react/contact', function () {
+    return Inertia::render('Contact', [
+        'foo' => 'bar'
+    ]);
+});
+Route::get('/test-react/subscription', function () {
+    return Inertia::render('Subscription', [
+        'foo' => 'bar'
+    ]);
+});
 Route::get('/test', VueController::class);
 Route::get('/event/trigger', 'EventController@trigger');
 Route::get('/pusher/trigger', 'PusherController@trigger');
