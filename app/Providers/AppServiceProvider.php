@@ -24,6 +24,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        // dynamically set the rootview based on whether the route is backend or frontend 
+        // can also be done in a middleware that wraps all admin routes
+        if(request()->is('test')){
+            Inertia::setRootView('vue.app');
+        } else {
+            // some other
+        }
+
         if ($this->app->environment() == 'local') {
             $this->app->register(\Reliese\Coders\CodersServiceProvider::class);
         }

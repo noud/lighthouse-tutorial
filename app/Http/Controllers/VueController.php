@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 
-class HomeController
+class VueController
 {
     public function __invoke()
     {
