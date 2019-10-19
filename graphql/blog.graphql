@@ -8,6 +8,7 @@ extend type Query {
     # i get an empty wrong result
     # posts: [Post!]! @paginate(model: "App\\Models\\Post")
     # postsConnection(aggregate: Int): [Post!]! @field(resolver: "App\\GraphQL\\Query@postsConnection")
+    posts: [Post!]! @paginate(builder: "App\\Models\\Post@visiblePosts")
 
     # ra-data-opencrud (so far) (paginate error)
     posts: [Post!]! @all
@@ -47,7 +48,7 @@ type Post {
     slug: String
     content: String
     coverImage: CoverImage @belongsTo
-    author: User @belongsTo
+    author: User @belongsTo(relation: "user")
     comments: [Comment!]! @hasMany
     dateAndTime: String @rename(attribute: "updated_at")
     updated_at: DateTime
@@ -76,14 +77,37 @@ input PostInput {
     title: String
 }
 
+input CreateUserInput {
+   name: String!
+}
+
+input  UpdateUserInput {
+   name: String!
+}
+
+input CreateAuthorRelation {
+    connect: ID
+    create: CreateUserInput
+    update: UpdateUserInput
+}
+
 input CreatePostInput {
-    title: String   # @rules(apply: ["required", "min:4"])
+    title: String!   # @rules(apply: ["required", "min:4"])
     content: String # @rules(apply: ["email"])
+    author: CreateAuthorRelation
+}
+
+input UpdateAuthorRelation {
+    connect: ID
+    create: CreateUserInput
+    update: UpdateUserInput
+    disconnect: Boolean
+    delete: Boolean
 }
 
 input UpdatePostInput {
-    id: ID!
     title: String @rules(apply: ["required", "min:4"])
+    author: UpdateAuthorRelation
 }
 
 # type Subscription {
@@ -91,8 +115,8 @@ input UpdatePostInput {
 # }
 
 extend type Mutation {
-  createPost(title: String!, content: String): Post! @create
-    # createPost(input: CreatePostInput @spread): Post! @create
+#   createPost(title: String!, content: String): Post! @create
+    createPost(input: CreatePostInput! @spread): Post @create
     # updatePost(input: UpdatePostInput! @spread): Post @update @broadcast(subscription: "postUpdated")
   deletePost(id: ID!): Post @delete
 }

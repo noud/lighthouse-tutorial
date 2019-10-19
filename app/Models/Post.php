@@ -2,6 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Query\Builder;
+use GraphQL\Type\Definition\ResolveInfo;
+use Nuwave\Lighthouse\Support\Contracts\GraphQLContext;
+
 class Post extends \App\Models\Base\Post
 {
 	protected $fillable = [
@@ -26,13 +32,23 @@ class Post extends \App\Models\Base\Post
 		}
 		return $query;
 	}
-	
-	public function author()
+
+	/**
+	 * @todo should give OpenCRUD pagination
+	 */
+	public function visiblePosts($root, array $args, GraphQLContext $context, ResolveInfo $resolveInfo): Builder
+    {
+        return DB::table('posts')
+            ->where('visible', true)
+            ->where('posted_at', '>', $args['after']);
+    }
+
+	public function user(): BelongsTo
 	{
 		return $this->belongsTo(\App\Models\User::class);
 	}
 
-	public function coverImage()
+	public function coverImage(): BelongsTo
 	{
 		return $this->belongsTo(\App\Models\CoverImage::class);
 	}
