@@ -1,5 +1,7 @@
 
 extend type Query {
+    allPosts: [Post!]! @all
+
     # ra-data-opencrud (try) (paginate error)
     # if i now add the Post fields to
     # /home/noud/workspace/lighthouse-tutorial/vendor/nuwave/lighthouse/src/Pagination/PaginationManipulator.php line 132
@@ -18,7 +20,7 @@ extend type Query {
     # ra-data-graphql-simple (so far) (paginate error)
     # Post(id: PostInput! @eq): Post @find
     Post(id: Int): Post @first
-    allPosts: [Post!]! @all
+    # allPosts: [Post!]! @all
     _allPostsMeta: ListMetadata @all  # fake
 
     # ra-data-graphql-simple (example)
